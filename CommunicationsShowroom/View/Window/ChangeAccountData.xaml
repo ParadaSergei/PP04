@@ -85,7 +85,7 @@
              Margin="10"
             Grid.Row="3" >
                 <Label
-                Content="Тип устройста на ремонт"
+                Content="Тип устройства на ремонт"
                     FontSize="18"
                     Foreground="Black"
                 />

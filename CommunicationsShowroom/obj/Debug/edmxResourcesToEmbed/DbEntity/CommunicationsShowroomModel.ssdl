@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище CommunicationsShowroomModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AccountClient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoginClient" Type="nvarchar" MaxLength="50" />
+    <Property Name="PasswordClient" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id_Client" Type="int" />
+    <Property Name="Id_Status" Type="int" />
+  </EntityType>
+  <EntityType Name="AccountEmployees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoginEmployees" Type="nvarchar" MaxLength="50" />
+    <Property Name="PasswordEmployees" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id_Employees" Type="int" />
+    <Property Name="Id_Status" Type="int" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="70" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="70" />
+    <Property Name="Number" Type="nvarchar" MaxLength="70" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Address" Type="nvarchar" MaxLength="70" />
+  </EntityType>
+  <EntityType Name="Device">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Brand" Type="nvarchar" MaxLength="70" />
+    <Property Name="Model" Type="nvarchar" MaxLength="70" />
+    <Property Name="DeviceType" Type="nvarchar" MaxLength="70" />
+    <Property Name="Price" Type="int" />
+    <Property Name="AmountInStock" Type="int" />
+  </EntityType>
+  <EntityType Name="InfoEmployees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="70" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="70" />
+    <Property Name="Position" Type="nvarchar" MaxLength="70" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="DateEnterOnJob" Type="date" />
+    <Property Name="Salary" Type="int" />
+    <Property Name="GoodsSold" Type="int" />
+  </EntityType>
+  <EntityType Name="OrdersStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RepairOrders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Id_Client" Type="int" />
+    <Property Name="Id_Device" Type="int" />
+    <Property Name="Id_Status" Type="int" />
+    <Property Name="Price" Type="int" />
+  </EntityType>
+  <EntityType Name="Sales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Id_Client" Type="int" />
+    <Property Name="Id_Device" Type="int" />
+    <Property Name="Price" Type="int" />
+    <Property Name="Id_Status" Type="int" />
+  </EntityType>
+  <EntityType Name="SalesStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StatusAccount">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusAccount" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__AccountCl__Id_Cl__4C6B5938">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="AccountClient" Type="Self.AccountClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AccountClient">
+        <PropertyRef Name="Id_Client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AccountCl__Id_St__4B7734FF">
+    <End Role="StatusAccount" Type="Self.StatusAccount" Multiplicity="0..1" />
+    <End Role="AccountClient" Type="Self.AccountClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusAccount">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AccountClient">
+        <PropertyRef Name="Id_Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AccountEm__Id_Em__503BEA1C">
+    <End Role="InfoEmployees" Type="Self.InfoEmployees" Multiplicity="0..1" />
+    <End Role="AccountEmployees" Type="Self.AccountEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InfoEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AccountEmployees">
+        <PropertyRef Name="Id_Employees" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AccountEm__Id_St__4F47C5E3">
+    <End Role="StatusAccount" Type="Self.StatusAccount" Multiplicity="0..1" />
+    <End Role="AccountEmployees" Type="Self.AccountEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusAccount">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AccountEmployees">
+        <PropertyRef Name="Id_Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__InfoEmplo__Goods__3C34F16F">
+    <End Role="Device" Type="Self.Device" Multiplicity="0..1" />
+    <End Role="InfoEmployees" Type="Self.InfoEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InfoEmployees">
+        <PropertyRef Name="GoodsSold" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RepairOrd__Id_Cl__30C33EC3">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="RepairOrders" Type="Self.RepairOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RepairOrders">
+        <PropertyRef Name="Id_Client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RepairOrd__Id_De__2FCF1A8A">
+    <End Role="Device" Type="Self.Device" Multiplicity="0..1" />
+    <End Role="RepairOrders" Type="Self.RepairOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RepairOrders">
+        <PropertyRef Name="Id_Device" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RepairOrd__Id_St__2EDAF651">
+    <End Role="OrdersStatus" Type="Self.OrdersStatus" Multiplicity="0..1" />
+    <End Role="RepairOrders" Type="Self.RepairOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrdersStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RepairOrders">
+        <PropertyRef Name="Id_Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sales__Id_Client__37703C52">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="Id_Client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sales__Id_Device__367C1819">
+    <End Role="Device" Type="Self.Device" Multiplicity="0..1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="Id_Device" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sales__Id_Status__3587F3E0">
+    <End Role="OrdersStatus" Type="Self.OrdersStatus" Multiplicity="0..1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrdersStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="Id_Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sales__Id_Status__3864608B">
+    <End Role="SalesStatus" Type="Self.SalesStatus" Multiplicity="0..1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SalesStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="Id_Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище CommunicationsShowroomModelContainer">
+    <EntitySet Name="AccountClient" EntityType="Self.AccountClient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AccountEmployees" EntityType="Self.AccountEmployees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Device" EntityType="Self.Device" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InfoEmployees" EntityType="Self.InfoEmployees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrdersStatus" EntityType="Self.OrdersStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RepairOrders" EntityType="Self.RepairOrders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesStatus" EntityType="Self.SalesStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StatusAccount" EntityType="Self.StatusAccount" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__AccountCl__Id_Cl__4C6B5938" Association="Self.FK__AccountCl__Id_Cl__4C6B5938">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="AccountClient" EntitySet="AccountClient" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AccountCl__Id_St__4B7734FF" Association="Self.FK__AccountCl__Id_St__4B7734FF">
+      <End Role="StatusAccount" EntitySet="StatusAccount" />
+      <End Role="AccountClient" EntitySet="AccountClient" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AccountEm__Id_Em__503BEA1C" Association="Self.FK__AccountEm__Id_Em__503BEA1C">
+      <End Role="InfoEmployees" EntitySet="InfoEmployees" />
+      <End Role="AccountEmployees" EntitySet="AccountEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AccountEm__Id_St__4F47C5E3" Association="Self.FK__AccountEm__Id_St__4F47C5E3">
+      <End Role="StatusAccount" EntitySet="StatusAccount" />
+      <End Role="AccountEmployees" EntitySet="AccountEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__InfoEmplo__Goods__3C34F16F" Association="Self.FK__InfoEmplo__Goods__3C34F16F">
+      <End Role="Device" EntitySet="Device" />
+      <End Role="InfoEmployees" EntitySet="InfoEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RepairOrd__Id_Cl__30C33EC3" Association="Self.FK__RepairOrd__Id_Cl__30C33EC3">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="RepairOrders" EntitySet="RepairOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RepairOrd__Id_De__2FCF1A8A" Association="Self.FK__RepairOrd__Id_De__2FCF1A8A">
+      <End Role="Device" EntitySet="Device" />
+      <End Role="RepairOrders" EntitySet="RepairOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RepairOrd__Id_St__2EDAF651" Association="Self.FK__RepairOrd__Id_St__2EDAF651">
+      <End Role="OrdersStatus" EntitySet="OrdersStatus" />
+      <End Role="RepairOrders" EntitySet="RepairOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sales__Id_Client__37703C52" Association="Self.FK__Sales__Id_Client__37703C52">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sales__Id_Device__367C1819" Association="Self.FK__Sales__Id_Device__367C1819">
+      <End Role="Device" EntitySet="Device" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sales__Id_Status__3587F3E0" Association="Self.FK__Sales__Id_Status__3587F3E0">
+      <End Role="OrdersStatus" EntitySet="OrdersStatus" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sales__Id_Status__3864608B" Association="Self.FK__Sales__Id_Status__3864608B">
+      <End Role="SalesStatus" EntitySet="SalesStatus" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

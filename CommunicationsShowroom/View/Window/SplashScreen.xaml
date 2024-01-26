@@ -1,0 +1,76 @@
+﻿<Window x:Class="AccountingOfResonantComponent.View.Window.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+         Icon="/Image/icon.ico"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="{x:Null}"
+        Title="SplashScreen" Height="600" Width="900" ContentRendered="Window_ContentRendered">
+    <materialDesign:Card UniformCornerRadius="15" Background="White" materialDesign:ShadowAssist.ShadowDepth="Depth5" Margin="25">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="450"/>
+                <ColumnDefinition Width="380"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel 
+                Grid.Column="0" 
+                Width="400"
+                Height="150"
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Bottom" 
+                Margin="37,0,0,200">
+                <WrapPanel
+                    Margin="0,0,0,0">
+                    <Image 
+                        Source="/Image/Remont.png" 
+                        HorizontalAlignment="Right"
+                        Height="100"
+                        Width="100"/>
+                    <TextBlock
+                        FontSize="35"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Margin="15,0,0,0" FontFamily="Lucida Handwriting" FontStyle="Italic" TextDecorations="{x:Null}">
+                        Учёт<LineBreak/>
+                        ремонтных <LineBreak/>
+                        комплектующих
+                    </TextBlock>
+                </WrapPanel>
+            </StackPanel>
+            <TextBlock
+                Text="Пожалуйста подождите..."
+                FontSize="15"
+                HorizontalAlignment="Left"
+                Margin="30,500,0,3" FontStyle="Italic" TextDecorations="{x:Null}" FontFamily="Showcard Gothic"/>
+            <StackPanel 
+                Grid.Column="1" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                Height="350"
+                Width="350"
+                Margin="0,0,0,0">
+                <Image 
+                    Source="/Image/Obloshka.png" />
+            </StackPanel>
+            
+            <ProgressBar
+                    Name="progressBar"
+                    Value="0" 
+                    Grid.ColumnSpan="2"
+                    Height="7"
+                    Width="800"
+                    Background="#464e59"
+                    Foreground="#fc8202"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Margin="20,0,0,20"
+                    IsIndeterminate="True"/>
+        </Grid>
+    </materialDesign:Card>
+</Window>

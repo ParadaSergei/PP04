@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище AccountingOfResonantComponentModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Login" Type="varchar" MaxLength="255" />
+    <Property Name="Password" Type="varchar" MaxLength="255" />
+    <Property Name="Id_Account_data" Type="int" />
+    <Property Name="Privilege_account_privilege" Type="varchar" MaxLength="255" />
+    <Property Name="Date_Created" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Account_Data">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+    <Property Name="Device_repair_type" Type="varchar" MaxLength="255" />
+    <Property Name="Schedule_work" Type="varchar" MaxLength="255" />
+    <Property Name="Salary" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="Repair">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+    <Property Name="Id_Account_Data" Type="int" />
+    <Property Name="Id_Detail" Type="int" />
+    <Property Name="Fault_types" Type="varchar" MaxLength="255" />
+    <Property Name="Device_names" Type="varchar" MaxLength="255" />
+    <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Start_of_repair_by_time" Type="datetime" />
+    <Property Name="End_of_repair_by_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Warehouse">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Device_type" Type="varchar" MaxLength="255" />
+    <Property Name="Parts" Type="varchar" MaxLength="255" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Arrival_time" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__Account__Date_Cr__398D8EEE">
+    <End Role="Account_Data" Type="Self.Account_Data" Multiplicity="0..1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account_Data">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="Id_Account_data" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Repair__End_of_r__3E52440B">
+    <End Role="Account_Data" Type="Self.Account_Data" Multiplicity="0..1" />
+    <End Role="Repair" Type="Self.Repair" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account_Data">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Repair">
+        <PropertyRef Name="Id_Account_Data" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Repair__Id_Detai__3F466844">
+    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="0..1" />
+    <End Role="Repair" Type="Self.Repair" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Repair">
+        <PropertyRef Name="Id_Detail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище AccountingOfResonantComponentModelContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Account_Data" EntityType="Self.Account_Data" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Repair" EntityType="Self.Repair" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Warehouse" EntityType="Self.Warehouse" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Account__Date_Cr__398D8EEE" Association="Self.FK__Account__Date_Cr__398D8EEE">
+      <End Role="Account_Data" EntitySet="Account_Data" />
+      <End Role="Account" EntitySet="Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Repair__End_of_r__3E52440B" Association="Self.FK__Repair__End_of_r__3E52440B">
+      <End Role="Account_Data" EntitySet="Account_Data" />
+      <End Role="Repair" EntitySet="Repair" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Repair__Id_Detai__3F466844" Association="Self.FK__Repair__Id_Detai__3F466844">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="Repair" EntitySet="Repair" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

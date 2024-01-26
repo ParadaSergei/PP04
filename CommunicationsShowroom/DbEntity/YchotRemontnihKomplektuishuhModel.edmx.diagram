@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6da75899bb4446ac9146875f5f297dda" Name="Diagram1">
+        <EntityTypeShape EntityType="YchotRemontnihKomplektuishuhModel.Account" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YchotRemontnihKomplektuishuhModel.Account_Data" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="YchotRemontnihKomplektuishuhModel.Remont" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="YchotRemontnihKomplektuishuhModel.Sclad" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="YchotRemontnihKomplektuishuhModel.FK__Account__Date_Cr__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="YchotRemontnihKomplektuishuhModel.FK__Remont__End_remo__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="YchotRemontnihKomplektuishuhModel.FK__Remont__Id_Detai__534D60F1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

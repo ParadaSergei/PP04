@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище YchotRemontnihKomplektuishuhModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="255" />
+          <Property Name="Password" Type="varchar" MaxLength="255" />
+          <Property Name="Id_Account_data" Type="int" />
+          <Property Name="Privilege_account" Type="varchar" MaxLength="255" />
+          <Property Name="Date_Created" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Account_Data">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="Familia" Type="varchar" MaxLength="255" />
+          <Property Name="Device_Remont_type" Type="varchar" MaxLength="255" />
+          <Property Name="Raspisanie_work" Type="varchar" MaxLength="255" />
+          <Property Name="Zarplata" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="Remont">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="Id_Account_Data" Type="int" />
+          <Property Name="Id_Detail" Type="int" />
+          <Property Name="Type_neispravnosti" Type="varchar" MaxLength="255" />
+          <Property Name="Device_names" Type="varchar" MaxLength="255" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Start_remonta_po_time" Type="datetime" />
+          <Property Name="End_remonta_po_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Sclad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Device_type" Type="varchar" MaxLength="255" />
+          <Property Name="Detali" Type="varchar" MaxLength="255" />
+          <Property Name="Kolichestvo" Type="int" />
+          <Property Name="Pribitie_time" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__Account__Date_Cr__5629CD9C">
+          <End Role="Account_Data" Type="Self.Account_Data" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account_Data">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="Id_Account_data" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Remont__End_remo__52593CB8">
+          <End Role="Account_Data" Type="Self.Account_Data" Multiplicity="0..1" />
+          <End Role="Remont" Type="Self.Remont" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account_Data">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Remont">
+              <PropertyRef Name="Id_Account_Data" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Remont__Id_Detai__534D60F1">
+          <End Role="Sclad" Type="Self.Sclad" Multiplicity="0..1" />
+          <End Role="Remont" Type="Self.Remont" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sclad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Remont">
+              <PropertyRef Name="Id_Detail" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище YchotRemontnihKomplektuishuhModelContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Account_Data" EntityType="Self.Account_Data" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Remont" EntityType="Self.Remont" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sclad" EntityType="Self.Sclad" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Account__Date_Cr__5629CD9C" Association="Self.FK__Account__Date_Cr__5629CD9C">
+            <End Role="Account_Data" EntitySet="Account_Data" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Remont__End_remo__52593CB8" Association="Self.FK__Remont__End_remo__52593CB8">
+            <End Role="Account_Data" EntitySet="Account_Data" />
+            <End Role="Remont" EntitySet="Remont" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Remont__Id_Detai__534D60F1" Association="Self.FK__Remont__Id_Detai__534D60F1">
+            <End Role="Sclad" EntitySet="Sclad" />
+            <End Role="Remont" EntitySet="Remont" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="YchotRemontnihKomplektuishuhModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Account_data" Type="Int32" />
+          <Property Name="Privilege_account" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Created" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Account_Data" Relationship="Self.FK__Account__Date_Cr__5629CD9C" FromRole="Account" ToRole="Account_Data" />
+        </EntityType>
+        <EntityType Name="Account_Data">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Familia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Device_Remont_type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Raspisanie_work" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Zarplata" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Account" Relationship="Self.FK__Account__Date_Cr__5629CD9C" FromRole="Account_Data" ToRole="Account" />
+          <NavigationProperty Name="Remont" Relationship="Self.FK__Remont__End_remo__52593CB8" FromRole="Account_Data" ToRole="Remont" />
+        </EntityType>
+        <EntityType Name="Remont">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Account_Data" Type="Int32" />
+          <Property Name="Id_Detail" Type="Int32" />
+          <Property Name="Type_neispravnosti" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Device_names" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Start_remonta_po_time" Type="DateTime" Precision="3" />
+          <Property Name="End_remonta_po_time" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Account_Data" Relationship="Self.FK__Remont__End_remo__52593CB8" FromRole="Remont" ToRole="Account_Data" />
+          <NavigationProperty Name="Sclad" Relationship="Self.FK__Remont__Id_Detai__534D60F1" FromRole="Remont" ToRole="Sclad" />
+        </EntityType>
+        <EntityType Name="Sclad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Device_type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Detali" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Kolichestvo" Type="Int32" />
+          <Property Name="Pribitie_time" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Remont" Relationship="Self.FK__Remont__Id_Detai__534D60F1" FromRole="Sclad" ToRole="Remont" />
+        </EntityType>
+        <Association Name="FK__Account__Date_Cr__5629CD9C">
+          <End Role="Account_Data" Type="Self.Account_Data" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account_Data">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="Id_Account_data" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Remont__End_remo__52593CB8">
+          <End Role="Account_Data" Type="Self.Account_Data" Multiplicity="0..1" />
+          <End Role="Remont" Type="Self.Remont" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account_Data">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Remont">
+              <PropertyRef Name="Id_Account_Data" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Remont__Id_Detai__534D60F1">
+          <End Role="Sclad" Type="Self.Sclad" Multiplicity="0..1" />
+          <End Role="Remont" Type="Self.Remont" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sclad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Remont">
+              <PropertyRef Name="Id_Detail" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="YchotRemontnihKomplektuishuhEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Account" EntityType="Self.Account" />
+          <EntitySet Name="Account_Data" EntityType="Self.Account_Data" />
+          <EntitySet Name="Remont" EntityType="Self.Remont" />
+          <EntitySet Name="Sclad" EntityType="Self.Sclad" />
+          <AssociationSet Name="FK__Account__Date_Cr__5629CD9C" Association="Self.FK__Account__Date_Cr__5629CD9C">
+            <End Role="Account_Data" EntitySet="Account_Data" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Remont__End_remo__52593CB8" Association="Self.FK__Remont__End_remo__52593CB8">
+            <End Role="Account_Data" EntitySet="Account_Data" />
+            <End Role="Remont" EntitySet="Remont" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Remont__Id_Detai__534D60F1" Association="Self.FK__Remont__Id_Detai__534D60F1">
+            <End Role="Sclad" EntitySet="Sclad" />
+            <End Role="Remont" EntitySet="Remont" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище YchotRemontnihKomplektuishuhModelContainer" CdmEntityContainer="YchotRemontnihKomplektuishuhEntities">
+          <EntitySetMapping Name="Account">
+            <EntityTypeMapping TypeName="YchotRemontnihKomplektuishuhModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Id_Account_data" ColumnName="Id_Account_data" />
+                <ScalarProperty Name="Privilege_account" ColumnName="Privilege_account" />
+                <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Account_Data">
+            <EntityTypeMapping TypeName="YchotRemontnihKomplektuishuhModel.Account_Data">
+              <MappingFragment StoreEntitySet="Account_Data">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Familia" ColumnName="Familia" />
+                <ScalarProperty Name="Device_Remont_type" ColumnName="Device_Remont_type" />
+                <ScalarProperty Name="Raspisanie_work" ColumnName="Raspisanie_work" />
+                <ScalarProperty Name="Zarplata" ColumnName="Zarplata" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Remont">
+            <EntityTypeMapping TypeName="YchotRemontnihKomplektuishuhModel.Remont">
+              <MappingFragment StoreEntitySet="Remont">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id_Account_Data" ColumnName="Id_Account_Data" />
+                <ScalarProperty Name="Id_Detail" ColumnName="Id_Detail" />
+                <ScalarProperty Name="Type_neispravnosti" ColumnName="Type_neispravnosti" />
+                <ScalarProperty Name="Device_names" ColumnName="Device_names" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Start_remonta_po_time" ColumnName="Start_remonta_po_time" />
+                <ScalarProperty Name="End_remonta_po_time" ColumnName="End_remonta_po_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sclad">
+            <EntityTypeMapping TypeName="YchotRemontnihKomplektuishuhModel.Sclad">
+              <MappingFragment StoreEntitySet="Sclad">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Device_type" ColumnName="Device_type" />
+                <ScalarProperty Name="Detali" ColumnName="Detali" />
+                <ScalarProperty Name="Kolichestvo" ColumnName="Kolichestvo" />
+                <ScalarProperty Name="Pribitie_time" ColumnName="Pribitie_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

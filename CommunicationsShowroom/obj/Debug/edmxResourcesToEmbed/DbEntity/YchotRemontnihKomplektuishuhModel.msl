@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище YchotRemontnihKomplektuishuhModelContainer" CdmEntityContainer="YchotRemontnihKomplektuishuhEntities">
+    <EntitySetMapping Name="Account">
+      <EntityTypeMapping TypeName="YchotRemontnihKomplektuishuhModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Id_Account_data" ColumnName="Id_Account_data" />
+          <ScalarProperty Name="Privilege_account" ColumnName="Privilege_account" />
+          <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Account_Data">
+      <EntityTypeMapping TypeName="YchotRemontnihKomplektuishuhModel.Account_Data">
+        <MappingFragment StoreEntitySet="Account_Data">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Familia" ColumnName="Familia" />
+          <ScalarProperty Name="Device_Remont_type" ColumnName="Device_Remont_type" />
+          <ScalarProperty Name="Raspisanie_work" ColumnName="Raspisanie_work" />
+          <ScalarProperty Name="Zarplata" ColumnName="Zarplata" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Remont">
+      <EntityTypeMapping TypeName="YchotRemontnihKomplektuishuhModel.Remont">
+        <MappingFragment StoreEntitySet="Remont">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id_Account_Data" ColumnName="Id_Account_Data" />
+          <ScalarProperty Name="Id_Detail" ColumnName="Id_Detail" />
+          <ScalarProperty Name="Type_neispravnosti" ColumnName="Type_neispravnosti" />
+          <ScalarProperty Name="Device_names" ColumnName="Device_names" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Start_remonta_po_time" ColumnName="Start_remonta_po_time" />
+          <ScalarProperty Name="End_remonta_po_time" ColumnName="End_remonta_po_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sclad">
+      <EntityTypeMapping TypeName="YchotRemontnihKomplektuishuhModel.Sclad">
+        <MappingFragment StoreEntitySet="Sclad">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Device_type" ColumnName="Device_type" />
+          <ScalarProperty Name="Detali" ColumnName="Detali" />
+          <ScalarProperty Name="Kolichestvo" ColumnName="Kolichestvo" />
+          <ScalarProperty Name="Pribitie_time" ColumnName="Pribitie_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

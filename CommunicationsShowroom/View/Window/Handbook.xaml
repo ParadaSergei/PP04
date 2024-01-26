@@ -1,0 +1,104 @@
+﻿<Window x:Class="AccountingOfResonantComponents.View.Window.Handbook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccountingOfResonantComponents.View.Window"
+        mc:Ignorable="d"
+               Icon="/Image/icon.ico"
+WindowStyle="None"
+ResizeMode="NoResize"
+WindowStartupLocation="CenterScreen"
+WindowChrome.IsHitTestVisibleInChrome="True"
+ Title="Добавления данных" Height="500" Width="400" Background="Transparent">
+    <Border CornerRadius="0" BorderThickness="1" BorderBrush="Black" Background="White">
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <DockPanel HorizontalAlignment="Stretch"
+   VerticalAlignment="Stretch"
+   LastChildFill="True"
+    Height="30"
+    Grid.Row="0">
+                <Grid DockPanel.Dock="Right"
+           Background="#464e59">
+                    <StackPanel Orientation="Horizontal"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Height="20">
+                        <Button x:Name="CloseButton"
+            KeyboardNavigation.IsTabStop="False"
+           Width="20"
+            Height="20"
+            Margin="4,0,4,0"
+            Background="#fc8202"
+            Click="CloseApp_Click" Style="{DynamicResource ButtonStyleAll}">
+                            <Image Source="/Image/close.png" Margin="2"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </DockPanel>
+            <StackPanel Grid.Row="1">
+                <Label
+                Margin="5,10,0,0"
+                FontSize="20"
+                Foreground="Black"
+                Content="Справочник :" FontFamily="Goudy Old Style" FontStyle="Italic"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2">
+                <TextBlock
+                Margin="5,10,0,0"
+                    Height="250"
+                FontSize="13"
+                Foreground="Black"
+                FontFamily="Goudy Old Style" FontStyle="Italic">
+                    Программа подходит для работников связанной с <LineBreak/>
+                    ремонтом техники.<LineBreak/><LineBreak/>
+                    Для её работы вам понадобится: логин,пароль<LineBreak/>
+                    Их можно взять у администратора<LineBreak/><LineBreak/>
+                    Программа даёт работнику добавлять данные в таблицы,<LineBreak/>
+                    для планирования своей работы и смотреть информацию.<LineBreak/><LineBreak/>
+                    В программе учитываеться информация о складе ,<LineBreak/>
+                    что есть из деталей для ремонта.<LineBreak/><LineBreak/>
+                    И сами списки ремонта:Имя человека, работник, <LineBreak/>
+                    тип неисправности,номер детали на складе, и стоимость.
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="3">
+                <Label
+     Margin="5,80,0,0"
+     FontSize="20"
+     Foreground="Black"
+     Content="О программе :" FontFamily="Goudy Old Style" FontStyle="Italic"/>
+            </StackPanel>
+            <StackPanel Grid.Row="4">
+                <TextBlock
+     Margin="5,0,60,0"
+         Height="30"
+     FontSize="13"
+     Foreground="Black"
+     FontFamily="Goudy Old Style" FontStyle="Italic">
+                    Разработчик: Парада Сергей Сергеевич,<LineBreak/>
+                    Группа ИС-42
+                </TextBlock>
+                <TextBlock
+Margin="365,5,10,10"
+    Height="10"
+    FontSize="10"
+Foreground="Black"
+FontFamily="Goudy Old Style" FontStyle="Italic">
+2024
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,128 @@
+﻿<Window x:Class="AccountingOfResonantComponent.View.Autorization"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccountingOfResonantComponent.View.Window"
+        mc:Ignorable="d" 
+        Icon="/Image/icon.ico"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowChrome.IsHitTestVisibleInChrome="True"
+        Title="Авторизация" Height="630" Width="350" AllowsTransparency="True" Background="Transparent" >
+    <Border CornerRadius="0" BorderThickness="1" BorderBrush="Black" Background="White">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <DockPanel HorizontalAlignment="Stretch"
+           VerticalAlignment="Stretch"
+           LastChildFill="True"
+            Height="40"
+            Grid.Row="0">
+                <Grid DockPanel.Dock="Right"
+                    MouseDown="Drag" Background="#464e59">
+                    <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Height="40">
+                        <Label
+                FontSize="24"
+                Margin="0,0,40,0"
+                Foreground="White"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left"
+                Content="Авторизация" FontFamily="Edwardian Script ITC" FontStyle="Italic"/>
+                        <Button x:Name="MinimizeButton"
+                    KeyboardNavigation.IsTabStop="False"
+                    Width="20"
+                    Height="20"
+                    Background="#fc8202"
+                    Click="MinimizeWindow_Click"
+                    Margin="4,0,4,0" Style="{DynamicResource ButtonStyleAll}">
+                            <Image  Source="/Image/minimize.png"  Width="10" Height="10" HorizontalAlignment="Center"/>
+                        </Button>
+                        <Button x:Name="CloseButton"
+                    KeyboardNavigation.IsTabStop="False"
+                    Width="20"
+                    Height="20"
+                    Margin="4,0,4,0"
+                    Background="#fc8202"
+                    Click="CloseApp_Click" Style="{DynamicResource ButtonStyleAll}">
+                            <Image Source="/Image/close.png" Width="10" Height="10" HorizontalAlignment="Center"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </DockPanel>
+            <StackPanel Grid.Row="2" Margin="20,30,20,20">
+                <Label
+                Margin="5,10,0,0"
+                 FontSize="25"
+                Foreground="Black"
+                Content="Логин :" FontFamily="Goudy Old Style" FontStyle="Italic"/>
+                    <TextBox
+                Text="{Binding Login}"
+                        Height="30"
+                x:Name="loginBox"
+                Margin="10,0,10,0"
+                        FontSize="15"
+                />
+            </StackPanel>
+            <StackPanel Grid.Row="1" Margin="20,30,20,20">
+                <Image 
+            Source="/Image/Remont.png" 
+            HorizontalAlignment="Center"
+            Height="200"
+            Width="200"/>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Margin="20">
+                <Label
+                Margin="5,10,0,0"
+                 FontSize="25"
+                Foreground="Black"
+                Content="Пароль :" FontFamily="Goudy Old Style" FontStyle="Italic"/>
+                    <PasswordBox
+                Name="pswBox"
+                 Height="30"
+                        FontSize="15"
+                 Margin="10,0,10,0"/>
+            </StackPanel>
+            <StackPanel Grid.Row="4"
+            Orientation="Horizontal"
+            VerticalAlignment="Center">
+                <Button
+                Name="ButtonAutoriz"
+                Click="loginButton_Click"
+                Content="{Binding ButtonDes}"
+                Width="120"
+                Height="40"
+                FontSize="15"
+                Background="#191d20"
+                Foreground="White"
+                Margin="115,20,0,40" Style="{DynamicResource ButtonStyleAll}" FontStyle="Italic" FontFamily="Goudy Old Style"
+                />
+                <Button
+ Name="ButtonHandbook"
+ Width="30"
+ Height="30"
+ FontSize="15"
+ Background="Transparent"
+ Foreground="White"
+ Margin="70,50,20,20" Style="{DynamicResource ButtonStyleAll}" FontStyle="Italic" FontFamily="Goudy Old Style" Click="ButtonHandbook_Click"
+ >
+                    <Image 
+Source="/Image/handbook.png" 
+Height="25"
+Width="25"/>
+                    
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

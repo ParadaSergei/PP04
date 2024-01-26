@@ -12,7 +12,7 @@ using System.Windows;
 
 namespace AccountingOfResonantComponent.ViewModel
 {
-    public class AutorizVM : BaseViewModel
+    public class AutorizMV : BaseViewModel
     {
         private string _buttonDescription = "Войти";
         public Account _account;

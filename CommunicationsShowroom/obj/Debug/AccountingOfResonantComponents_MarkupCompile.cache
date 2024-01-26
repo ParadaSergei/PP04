@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-F:\ПП4курс\ПП4курса\CommunicationsShowroom\obj\Debug\
+F:\PP04\PP04\CommunicationsShowroom\obj\Debug\
 AccountingOfResonantComponents
 none
 false
 DEBUG;TRACE
-F:\ПП4курс\ПП4курса\CommunicationsShowroom\App.xaml
+F:\PP04\PP04\CommunicationsShowroom\App.xaml
 12-480844775
 2-155358759
-331867578440
-208851683363
+3357030340
+208-239101509
 View\Page\AccountDataPage.xaml;View\Page\AccountEmployeesPage.xaml;View\Page\RemontPage.xaml;View\Page\ScladPage.xaml;View\Window\Autorization.xaml;View\Window\ChangeAccount.xaml;View\Window\ChangeAccountData.xaml;View\Window\ChangeTableRemont.xaml;View\Window\ChangeTableSclad.xaml;View\Window\Handbook.xaml;View\Window\MainMenu.xaml;View\Window\SplashScreen.xaml;
 
 False

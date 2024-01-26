@@ -26,7 +26,7 @@ namespace AccountingOfResonantComponent.View
         public AccountEmployeesPage()
         {
             InitializeComponent();
-            this.DataContext = new AccountEmployeesVM();
+            this.DataContext = new AccountEmployeesMV();
         }
  
     }

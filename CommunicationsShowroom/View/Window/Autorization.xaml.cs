@@ -26,7 +26,7 @@ namespace AccountingOfResonantComponent.View
         public Autorization()
         {
             InitializeComponent();
-            this.DataContext = new AutorizVM();
+            this.DataContext = new AutorizMV();
             autorizationWindow = this;
         }
         private void Drag(object sender, RoutedEventArgs e)
@@ -48,8 +48,8 @@ namespace AccountingOfResonantComponent.View
         }
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as AutorizVM).Password = pswBox.Password.ToString();
-            (DataContext as AutorizVM).AuthorInApp();
+            (DataContext as AutorizMV).Password = pswBox.Password.ToString();
+            (DataContext as AutorizMV).AuthorInApp();
         }
 
         private void ButtonHandbook_Click(object sender, RoutedEventArgs e)

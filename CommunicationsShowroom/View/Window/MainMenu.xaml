@@ -82,7 +82,7 @@
             Grid.Row="1"
             Name="InsertButton"
             Content="Добавить"
-            
+            Visibility="Hidden"
             Click="InsertButton_Click"
             Background="#191d20"
             VerticalAlignment="Top"
@@ -97,7 +97,7 @@
             FontSize="17"
             Margin="0,110,0,0"
             Name="DeleteButton"
-           
+            Visibility="Hidden"
             Click="DeleteButton_Click"
             Content="Удалить"
             Background="#191d20"
@@ -111,6 +111,7 @@
             Height="40"
             FontSize="17"
             Margin="0,60,0,0"
+            Visibility="Hidden"
             
             Name="EditButton"
             Click="EditButton_Click"

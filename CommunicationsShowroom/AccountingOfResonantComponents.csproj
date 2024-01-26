@@ -375,8 +375,8 @@
     </Compile>
     <Compile Include="Model\Date.cs" />
     <Compile Include="Model\FileWorker.cs" />
-    <Compile Include="ViewModel\AccountEmployeesVM.cs" />
-    <Compile Include="ViewModel\AutorizVM.cs" />
+    <Compile Include="ViewModel\AccountEmployeesMV.cs" />
+    <Compile Include="ViewModel\AutorizMV.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\AccountDataMV.cs" />
     <Compile Include="ViewModel\PageViewModel.cs" />

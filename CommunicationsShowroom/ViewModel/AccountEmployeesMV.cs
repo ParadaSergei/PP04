@@ -10,13 +10,13 @@ using System.Windows;
 
 namespace AccountingOfResonantComponent.ViewModel
 {
-    public class AccountEmployeesVM : BaseViewModel
+    public class AccountEmployeesMV : BaseViewModel
     {
         private ObservableCollection<Account> _accountEmployees;
 
         private Account _accountEmployee;
 
-        public AccountEmployeesVM()
+        public AccountEmployeesMV()
         {
             AccountEmployees = new ObservableCollection<Account>();
             LoadData();
